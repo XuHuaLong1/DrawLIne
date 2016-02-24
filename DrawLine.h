@@ -4,9 +4,11 @@
 class Point
 {
 public:
-	int GetX() const;
-	int GetY() const;
-	void Init(int x,int y);
+	int GetX() const {return _x;}
+	int GetY() const {return _y;}
+	int SetX(int set) {_x = set;}
+	int SetY(int set) {_y = set;}
+	void Init(int x,int y) {_x = x;_y=y;}
 	Point():_x(0),_y(0) {};
 	Point(int x,int y):_x(x),_y(y) {}
 	Point(const Point& rhs) { _x = rhs.GetX();_y = rhs.GetY();}

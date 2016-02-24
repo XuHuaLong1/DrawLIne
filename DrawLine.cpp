@@ -1,48 +1,52 @@
 #include "DrawLine.h"
-#include <math>
 
-void DrawLine::Draw();
+int abs(int x)
+{
+	return x >= 0 ? x : 0;
+}
+
+void DrawLine::Draw()
 {
 	printf("DrawLine:");
-	printf("From (%d %d) To (%d %d)\n",_start.x,_start,y,_end,x,_end.y);
-  printf("(%d,%d)->",_start.x,_start.y);
+	printf("From (%d %d) To (%d %d)\n",_start.GetX(),_start.GetY(),_end.GetX(),_end.GetY());
+  printf("(%d,%d)->",_start.GetX(),_start.GetY());
 
-	int difx = _end.x - _start.x;
-	int dify = _end.y - _start.y;
+	int difx = _end.GetX() - _start.GetY();
+	int dify = _end.GetY() - _start.GetY();
 	int dirx = difx ? 1 : -1;
 	int diry = dify ? 1 : -1;
-	difx = std::abs(difx);
-	dify = std::abs(dify);
+	difx = abs(difx);
+	dify = abs(dify);
 	int cnt = 0;
 	if(difx >= dify)
 	{
-		while(_start.x != _end.x)
+		while(_start.GetX() != _end.GetX())
 		{
-			_start.x += dirx;
-			_cnt += dify;
+			_start.SetX(_start.GetX()+dirx); 
+			cnt += dify;
 			if((cnt<<1) >= difx)
 			{
-				_start.y += diry;
-				_cnt -= dify;
+			  _start.SetY(_start.GetY()+diry);	
+				cnt -= difx;
 			}
-			printf("(%d,%d)->",_start,x,_start.y);
+			printf("(%d,%d)->",_start.GetX(),_start.GetY());
 		}
 	}
 	else 
 	{
-	  while(_start.y != _end.y)
+	  while(_start.GetY() != _end.GetY())
 		{
-			_start.y += diry;
-			_cnt += difx;
+			_start.SetY(_start.GetY()+diry);
+			cnt += difx;
 			if((cnt<<1) >= dify)
 			{
-				_start.x += dirx;
-				_cnt -= difx;
+				_start.SetX(_start.GetX()+dirx);
+				cnt -= dify;
 
 			}
-			printf("(%d,%d)->",_start.x,_start.y);
+			printf("(%d,%d)->",_start.GetX(),_start.GetY());
 		}
 	}
-	printf("(%d,%d)\n",_end.x,_end.y);
+	printf("(%d,%d)\n",_end.GetX(),_end.GetY());
 	
 }
