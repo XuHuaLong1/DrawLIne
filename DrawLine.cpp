@@ -5,6 +5,18 @@ int abs(int x)
 	return x >= 0 ? x : 0;
 }
 
+void DrawLine::Init(int sx,int sy,int ex,int ey)
+{
+	_start.Init(sx,sy);
+	_end.Init(ex,ey);
+}
+
+void DrawLine::Init(const Point& start,const Point& end)
+{
+	_start = start;
+	_end = end;
+}
+
 void DrawLine::Draw()
 {
 	printf("DrawLine:");

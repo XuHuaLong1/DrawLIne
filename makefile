@@ -5,4 +5,4 @@ DrawLine.o: DrawLine.cpp
 main.o: main.cpp
 	g++ -c main.cpp -o main.o
 clean:
-	rm -rf *.o
+	rm -rf *.o Start
