@@ -1,22 +1,8 @@
-TARGET = .
-CC = g++
-CFLAGS = -g
-CFLAGC = -c
-
-MAINC = main.cpp
-DRAWLINE = DrawLine.cpp
-OBJ	= DrawLine.o
-
-INCLUDE = -I$(TARGET)
-	EXEC = $(TARGET)/main
-
-all: $(EXEC)
-$(EXEC):$(OBJ)$(MAINC)
-	$(CC)$(CFLAGS)$(OBJ)$(MAINC)$(INCLUDE) -o $@
-	rm -f $(OBJ)
-	@echo "<<<<<< $@ is created successfully! >>>>"
-	$(OBJ): $(DRWALINE) 
-	$(CC) $(CFLAGC)$(DRAWLINE) -o $@
-	clean:
-	rm -f $(EXEC)
-	
+Start: main.o DrawLine.o
+	g++ -g main.o DrawLine.o -o Start
+DrawLine.o: DrawLine.cpp
+	g++ -c DrawLine.cpp -o DrawLine.o
+main.o: main.cpp
+	g++ -c main.cpp -o main.o
+clean:
+	rm -rf *.o

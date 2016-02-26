@@ -9,7 +9,7 @@ void DrawLine::Draw()
 {
 	printf("DrawLine:");
 	printf("From (%d %d) To (%d %d)\n",_start.GetX(),_start.GetY(),_end.GetX(),_end.GetY());
-  printf("(%d,%d)->",_start.GetX(),_start.GetY());
+  printf("(%d,%d)",_start.GetX(),_start.GetY());
 
 	int difx = _end.GetX() - _start.GetY();
 	int dify = _end.GetY() - _start.GetY();
@@ -29,7 +29,7 @@ void DrawLine::Draw()
 			  _start.SetY(_start.GetY()+diry);	
 				cnt -= difx;
 			}
-			printf("(%d,%d)->",_start.GetX(),_start.GetY());
+			printf("->(%d,%d)",_start.GetX(),_start.GetY());
 		}
 	}
 	else 
@@ -44,9 +44,8 @@ void DrawLine::Draw()
 				cnt -= dify;
 
 			}
-			printf("(%d,%d)->",_start.GetX(),_start.GetY());
+			printf("->(%d,%d)",_start.GetX(),_start.GetY());
 		}
 	}
-	printf("(%d,%d)\n",_end.GetX(),_end.GetY());
-	
+	printf("\n");
 }
